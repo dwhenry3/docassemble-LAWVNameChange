@@ -15,6 +15,7 @@ features:
   javascript: docassemble.LAWVCommon:data/static/force_lightmode.js
   css: docassemble.LAWVCommon:data/static/lawv.css
   cache documents: False
+  suppress autofill: True
 ---
 include:
   - docassemble.LAWVCommon:common_info.yml
@@ -95,7 +96,8 @@ fields:
     code: states_list()
     default: WV
   - Zip: p.address.zip
-  - County: p.address.county
+  - field: p.address.county
+    input type: hidden
   - note: |
       **Past Information**
   - State where you were born: p.birth_state
@@ -106,8 +108,6 @@ validation code: |
     validation_error('Please enter a valid phone number.', field='p.phone_number')
   else:
     p.phone_number = phone_number_formatted(p.phone_number)
-  if "County" not in p.address.county:
-    validation_error('County must be in the format: XXXXXX County')
 ---
 ga id: nameChangeBirthName
 question: |
