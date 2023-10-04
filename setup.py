@@ -44,7 +44,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
     return out
 
 setup(name='docassemble.LAWVNameChange',
-      version='0.0.1',
+      version='1.0.1',
       description=('A docassemble extension to create a Name Change Petition packet suitable for court'),
       long_description='A guided interview to create a Name Change Petition packet suitable for turning in to the Circuit Clerk.',
       long_description_content_type='text/markdown',
