@@ -1,8 +1,8 @@
 metadata:
   title: |
-    LAWV Name Change Form
+    LAWV Name Change Petition
   short title: |
-    WV Name Change From
+    LAWV Name Change Petition
   description: |
     This interview produces a Petitioner's Name Change
     Packet.
@@ -198,9 +198,7 @@ fields:
       - Other: other
     none of the above: False
     minlength: 1
-    show if:
-      variable: accommodations
-      is: yes
+    show if: accommodations
   - Specify Language: accom_language
     show if: accom_detail['language']
   - Specify: accom_other
@@ -267,23 +265,23 @@ attachment:
       - other_detail: "Adult Name Change"
       - jury: "jury_no"
       - accommodation: |
-          ${accommodations}
+          ${'yes' if accommodations else 'no'}
       - accom#wheelchair: |
-          ${accom_detail['wheelchair'] if accommodations == 'yes' else 'No'}
+          ${accom_detail['wheelchair'] if accommodations else 'No'}
       - accom#visual: |
-          ${accom_detail['visual'] if accommodations == 'yes' else 'No'}
+          ${accom_detail['visual'] if accommodations else 'No'}
       - accom#hearing: |
-          ${accom_detail['hearing'] if accommodations == 'yes' else 'No'}
+          ${accom_detail['hearing'] if accommodations else 'No'}
       - accom#speech: |
-          ${accom_detail['speech'] if accommodations == 'yes' else 'No'}
+          ${accom_detail['speech'] if accommodations else 'No'}
       - accom#language: |
-          ${accom_detail['language'] if accommodations == 'yes' else 'No'}
+          ${accom_detail['language'] if accommodations else 'No'}
       - accom#other: |
-          ${accom_detail['other'] if accommodations == 'yes' else 'No'}
+          ${accom_detail['other'] if accommodations else 'No'}
       - accom_language: |
-          ${accom_language if accommodations == 'yes' and accom_detail['language'] else ''}
+          ${accom_language if accommodations and accom_detail['language'] else ''}
       - accom_other: |
-          ${accom_other if accommodations == 'yes' and accom_detail['other'] else ''}
+          ${accom_other if accommodations and accom_detail['other'] else ''}
       - without_attorney: Yes
 ---
 attachment:
