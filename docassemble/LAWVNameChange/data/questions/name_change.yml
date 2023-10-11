@@ -9,7 +9,7 @@ metadata:
   authors:
     - name: Dane W. Henry, Esq.
       organization: Legal Aid of West Virginia, Inc.
-  revision_date: 2023-09-29
+  revision_date: 2023-10-11
 ---
 features:
   javascript: docassemble.LAWVCommon:data/static/force_lightmode.js
@@ -161,8 +161,7 @@ fields:
 question: |
   Identity Protection
 subquestion: |
-  You can ask the court to protect the new identity so that it
-  is not known or associated with the old one publicly.
+  You can ask the court to only publish your current name, not your new name.
 
   Do you need to protect your new identity?
 fields: 
