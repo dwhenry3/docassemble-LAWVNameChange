@@ -8,7 +8,7 @@ metadata:
   authors:
     - name: Dane W. Henry, Esq.
       organization: Legal Aid of West Virginia, Inc.
-  revision_date: 2026-01-22
+  revision_date: 2026-06-13
 ---
 features:
   javascript: docassemble.LAWVCommon:data/static/force_lightmode.js
@@ -79,6 +79,9 @@ fields:
       **Current Personal Information**
   - First Name: p.name.first
   - Middle Name: p.name.middle
+    hide if: p.no_middle
+  - I have no Middle Name: p.no_middle
+    datatype: yesno
   - Last Name: p.name.last
   - Suffix: p.name.suffix
     required: False
@@ -143,6 +146,10 @@ fields:
       variable: name_at_birth
       is: False
   - Middle Name at Birth: birth.name.middle
+    js show if: |
+      val('name_at_birth') == false && val('birth.no_middle') == false
+  - I had no Middle Name at birth: birth.no_middle
+    datatype: yesno
     show if:
       variable: name_at_birth
       is: False
@@ -163,8 +170,11 @@ question: |
 fields:
   - First: new_name.name.first
   - Middle: new_name.name.middle
+    hide if: new_name.no_middle
+  - No new Middle Name: new_name.no_middle
+    datatype: yesno
   - Last: new_name.name.last
-  - Suffix at Birth: new_name.name.suffix
+  - Suffix: new_name.name.suffix
     required: False
     code: name_suffix()
 ---
@@ -198,7 +208,7 @@ fields:
     hint: |
       Example: domestic violence, harassment, stalking, etc.
   - note: |
-      *The Petition will ask the judge to withhold your new name from publication.  If you have concerns with publishing your current name, please contact an attorney.*
+      *The Petition will ask the judge to withhold your new name from publication, however it is not guarenteed. If you have concerns with publishing your current name, please contact an attorney.*
 
       *[WV Lawyer Referral Service](https://wvlawyerreferral.org/)*  
       *[Legal Aid of West Virginia](https://legalaidwv.org)*
