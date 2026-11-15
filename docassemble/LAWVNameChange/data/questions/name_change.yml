@@ -4,7 +4,12 @@ metadata:
   short title: |
     LAWV Name Change Petiion
   description: |
-    This interview produces a Petitioner's Name Change Packet.
+    Prepare a petition for a name change in West Virginia.
+  jurisdiction: NAM-US-US+WV
+  LIST_topics:
+    - FA-11-00-00-00
+  tags:
+    - FA-11-00-00-00
   authors:
     - name: Dane W. Henry, Esq.
       organization: Legal Aid of West Virginia, Inc.
